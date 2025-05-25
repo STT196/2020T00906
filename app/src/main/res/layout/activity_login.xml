@@ -25,7 +25,8 @@
                 android:layout_width="235dp"
                 android:layout_height="235dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="0dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/logo"
                 app:shapeAppearanceOverlay="@style/cr50" />
@@ -81,19 +82,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Password*"
-                        android:textColor="#4E4B66"
+                        android:textColor="#101010"
                         android:textSize="14sp" />
 
-                    
-                        <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/r9t6ff2s36h8"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:inputType="textPassword"
-                        android:textColor="#020202"
-                        android:textColorHighlight="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textColorLink="#040404" />
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="1dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/r9t6ff2s36h8"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@android:color/transparent"
+                            android:inputType="textPassword"
+                            android:textColor="@color/black"
+                            android:textColorHighlight="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textColorLink="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -157,9 +166,10 @@
 
             <TextView
                 android:id="@+id/r903put17r5r"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
                 android:text="or continue with"
                 android:textColor="#4E4B66"
                 android:textSize="14sp" />
@@ -205,9 +215,10 @@
 
             <TextView
                 android:id="@+id/rymj3cbfsh5p"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="167dp"
+                android:gravity="center_horizontal"
                 android:text="don’t have an account ? Sign Up"
                 android:textColor="#4E4B66"
                 android:textSize="14sp" />
