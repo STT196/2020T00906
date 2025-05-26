@@ -30,9 +30,9 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main); // set the layout only if logged in
 
-        logoutButton = findViewById(R.id.logoutButton);
-        usernameTextView = findViewById(R.id.usernameTextView); // Assuming you have a TextView with this ID
-        logoutButton.setOnClickListener(v -> logoutUser());
+//        logoutButton = findViewById(R.id.logoutButton);
+//        usernameTextView = findViewById(R.id.usernameTextView); // Assuming you have a TextView with this ID
+//        logoutButton.setOnClickListener(v -> logoutUser());
 
         // Display username
         if (user != null) {

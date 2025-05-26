@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        // Check if user is already logged in
-        if (currentUser == null) {
-            // Not logged in → go to Login activity
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish(); // prevent returning to MainActivity
-        } else {
-            // Already logged in → go to Home activity (or main content)
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-            finish();
-        }
+//
+//        // Check if user is already logged in
+//        if (currentUser == null) {
+//            // Not logged in → go to Login activity
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//            finish(); // prevent returning to MainActivity
+//        } else {
+//            // Already logged in → go to Home activity (or main content)
+//            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+//            finish();
+//        }
     }
 }
