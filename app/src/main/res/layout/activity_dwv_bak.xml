@@ -1,0 +1,155 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1877F2"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/rjc4mqt6wnq"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rc122cfgs30s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginBottom="41dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/rosa5cb2571l"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginEnd="85dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
+                    app:shapeAppearanceOverlay="@style/cr50" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/r9tmtevxxclu"
+                    android:layout_width="149dp"
+                    android:layout_height="149dp"
+                    android:layout_marginTop="15dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar"
+                    app:shapeAppearanceOverlay="@style/cr50" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/rxbnfdsy0t4k5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="22dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:id="@+id/rxbnfdsy0t4k"
+                    android:layout_width="match_parent"
+                    android:layout_height="587dp"
+
+                    android:layout_marginHorizontal="22dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingTop="73dp"
+                    android:paddingBottom="32dp"
+
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/rphvwq0ns1g"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginBottom="94dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/rcsyxm5u5w7o"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="35dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Name: Thisara SaSamarasinghe"
+                            android:textColor="#000000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/roa2b3h77hne"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="35dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Student No. : 2020t00906"
+                            android:textColor="#000000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/rg88npdal6uq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Personal Statement : \nPassionate about designing, optimizing, and securing robust network infrastructures. Committed to ensuring high-performance connectivity and seamless operations through innovative solutions."
+                            android:textColor="#000000"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rgzqi09a4kss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="21dp"
+                        android:layout_marginBottom="34dp"
+                        android:background="#1877F2"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp">
+
+                        <TextView
+                            android:id="@+id/rb6apab1yr4s"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exit"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/rjpdrvdbj47"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Release Version: v1"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

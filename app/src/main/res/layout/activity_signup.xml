@@ -22,8 +22,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
 
-                android:layout_width="235dp"
-                android:layout_height="235dp"
+                android:layout_width="193dp"
+                android:layout_height="175dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
@@ -38,36 +38,84 @@
                 android:layout_marginBottom="16dp"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/rtjz43ttr42"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/r3k1aywuna60"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Email*"
+                        android:textColor="#040404"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp"
+                        app:boxStrokeColor="#FF000000"
+                        app:boxStrokeWidth="1dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="#FF000000"
+                            android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/r3k1aywuna62"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:text="Email*"
+                    android:text="Username*"
                     android:textColor="#040404"
                     android:textSize="14sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent"
-                    app:boxCornerRadiusTopStart="6dp"
-                    app:boxCornerRadiusTopEnd="6dp"
-                    app:boxCornerRadiusBottomStart="6dp"
+                    app:boxBackgroundColor="#00FFFFFF"
+                    app:boxBackgroundMode="outline"
                     app:boxCornerRadiusBottomEnd="6dp"
+                    app:boxCornerRadiusBottomStart="6dp"
+                    app:boxCornerRadiusTopEnd="6dp"
+                    app:boxCornerRadiusTopStart="6dp"
                     app:boxStrokeColor="@color/black"
-                    app:boxStrokeWidth="1dp"
-                    app:errorEnabled="true">
+                    />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusBottomEnd="6dp"
+                      >
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/username"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:ems="10"
-                        android:inputType="textEmailAddress"
+                        android:inputType="text"
                         android:textColor="@color/black"
-
+                        android:textColorHint="@color/black"
                         android:textSize="14sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -81,18 +129,61 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/rwsz07vy9l6"
+                    android:id="@+id/rwsz07vy9l60"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/rwsz07vy9l6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/rh6cbdihkj9h0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Password*"
+                            android:textColor="#101010"
+                            android:textSize="14sp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                        app:boxBackgroundColor="#FFFFFF"
+                            app:boxCornerRadiusTopStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                        app:boxStrokeColor="@color/black"
+                        app:boxStrokeWidth="1dp"
+                        app:endIconMode="password_toggle"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password1"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:inputType="textPassword"
+                            android:textColor="@color/black"
+
+                        android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/rh6cbdihkj9h"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Password*"
+                        android:text="Confirm Password*"
                         android:textColor="#101010"
                         android:textSize="14sp" />
 
@@ -100,6 +191,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         app:boxBackgroundColor="#FFFFFF"
                         app:boxCornerRadiusTopStart="6dp"
                         app:boxCornerRadiusTopEnd="6dp"
@@ -111,74 +203,38 @@
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/cpassword"
-                            android:layout_width="match_parent"
+                            android:id="@+id/password2"
+                              android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:inputType="textPassword"
                             android:textColor="@color/black"
+
                             android:textSize="14sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/r2i4r0dq3gg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="86dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingRight="3dp">
-
-                        <CheckBox
-                            android:id="@+id/rememberme"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Remember me"
-                            android:textColorLink="#FDFDFD" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/forgotpass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Forgot the password ?"
-                        android:textColor="#5890FF"
-                        android:textSize="14sp" />
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/login"
+                android:id="@+id/signup2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/log_3"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                app:boxCornerRadiusTopStart="6dp"
-                app:boxCornerRadiusTopEnd="6dp"
-                app:boxCornerRadiusBottomStart="6dp"
-                app:boxCornerRadiusBottomEnd="6dp"
                 android:paddingVertical="13dp">
 
                 <TextView
                     android:id="@+id/rjjompibzm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Login"
+                    android:text="Create Account"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -235,8 +291,10 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/marg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="-25sp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -245,14 +303,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
-                    android:text="Don't have an account?" />
+                    android:text="Do have an account?" />
 
                 <TextView
-                    android:id="@+id/signup"
+                    android:id="@+id/signin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="Sign Up"
+                    android:text="Sign In"
                     android:textColor="#2C82F1"
                     android:textStyle="bold" />
             </LinearLayout>
