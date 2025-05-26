@@ -4,7 +4,8 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Welcome to FOT News!"
+        android:id="@+id/usernameTextView"
+
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#000000"

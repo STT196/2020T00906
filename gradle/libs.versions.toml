@@ -9,6 +9,7 @@ kotlin = "2.1.21"
 coreKtx = "1.16.0"
 firebaseCommon = "21.0.0"
 firebaseAuth = "23.2.1"
+firebaseFirestore = "25.1.4"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -19,6 +20,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 firebase-common = { group = "com.google.firebase", name = "firebase-common", version.ref = "firebaseCommon" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
