@@ -22,10 +22,10 @@
 
             <com.google.android.material.imageview.ShapeableImageView
 
-                android:layout_width="193dp"
-                android:layout_height="175dp"
+                android:layout_width="151dp"
+                android:layout_height="134dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/logo"
@@ -218,7 +218,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/signup2"
+                android:id="@+id/back3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

@@ -62,11 +62,13 @@
     </LinearLayout>
 
     <!-- Edit Info Button -->
+
+    <!-- Sign Out Button -->
     <LinearLayout
         android:id="@+id/edit_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="340dp"
         android:background="@drawable/log_3"
         android:clickable="true"
         android:contextClickable="true"
@@ -75,6 +77,7 @@
         android:orientation="vertical"
         android:paddingVertical="13dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/user_info_layout">
 
@@ -87,7 +90,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Sign Out Button -->
     <LinearLayout
         android:id="@+id/signout"
         android:layout_width="0dp"

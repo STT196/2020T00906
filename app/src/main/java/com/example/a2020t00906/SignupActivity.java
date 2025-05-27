@@ -3,7 +3,6 @@ package com.example.a2020t00906;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +37,7 @@ public class SignupActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password1);
         confirmPasswordEditText = findViewById(R.id.password2);
-        signupButton = findViewById(R.id.signup2);
+        signupButton = findViewById(R.id.back3);
         signInRedirect = findViewById(R.id.signin);
 
         signupButton.setOnClickListener(v -> registerUser());

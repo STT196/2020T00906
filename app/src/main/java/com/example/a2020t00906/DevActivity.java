@@ -3,22 +3,23 @@ package com.example.a2020t00906;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DevActivity extends AppCompatActivity {
 
-    private ImageView backImageView;
+    private LinearLayout backinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dev);
 
-        backImageView = findViewById(R.id.back3);
+        backinfo = findViewById(R.id.back3);
 
         // Handle back navigation
-        backImageView.setOnClickListener(new View.OnClickListener() {
+        backinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Go back to previous activity (MainActivity)
