@@ -37,6 +37,8 @@
 
 package com.example.a2020t00906;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private LinearLayout newsContainer;
 
+    ImageView avatarImageView;
+
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +73,22 @@ public class MainActivity extends AppCompatActivity {
         newsContainer = findViewById(R.id.newsContainer); // Make sure this ID is in your XML
 
         loadNews();
+
+        avatarImageView = findViewById(R.id.profileAvatar);
+
+
+        avatarImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
+
 
     private void loadNews() {
         db.collection("news")

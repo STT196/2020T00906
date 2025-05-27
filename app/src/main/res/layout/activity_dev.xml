@@ -9,6 +9,17 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/back3"
+        android:layout_width="35dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/g381o4z9_expires_30_days" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="182dp"
         android:layout_height="146dp"

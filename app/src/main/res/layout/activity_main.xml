@@ -21,9 +21,9 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="19dp"
-            android:src="@drawable/g381o4z9_expires_30_days" />
+            android:src="@null" />
 
         <!-- Search Bar Row -->
         <LinearLayout
@@ -81,6 +81,7 @@
                 android:id="@+id/profileAvatar"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:clickable="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/avatar_s" />
         </LinearLayout>
@@ -116,36 +117,38 @@
 
         <!-- Sports Category -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/sportsBtn"
+            android:id="@+id/academicBtn2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:backgroundTint="#1877F2"
-            android:insetTop="0dp"
+            android:insetTop="-5dp"
             android:insetBottom="0dp"
             android:paddingVertical="12dp"
             android:text="Sports"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:cornerRadius="12dp" />
+            app:cornerRadius="10dp" />
 
-        <!-- Events Category -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/eventsBtn"
+            android:id="@+id/academicBtn3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:backgroundTint="#1877F2"
-            android:insetTop="0dp"
+            android:insetTop="-5dp"
             android:insetBottom="0dp"
             android:paddingVertical="12dp"
             android:text="Events"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:cornerRadius="12dp" />
+
+        <!-- Events Category -->
     </LinearLayout>
 
     <!-- Scrollable Card Section -->
