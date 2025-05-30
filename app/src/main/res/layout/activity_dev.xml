@@ -77,7 +77,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/log_3"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_horizontal"

@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +10,12 @@
         android:id="@+id/rcw8nn2cgfhc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/login_backg"
-        android:gravity="center_horizontal"
-        android:paddingHorizontal="25dp">
+
+        android:paddingHorizontal="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,14 +24,13 @@
 
             <com.google.android.material.imageview.ShapeableImageView
 
-                android:layout_width="235dp"
-                android:layout_height="235dp"
+                android:layout_width="225dp"
+                android:layout_height="190dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/logo"
-                app:shapeAppearanceOverlay="@style/cr50" />
+                app:srcCompat="@drawable/logo" />
 
             <LinearLayout
                 android:id="@+id/rtjz43ttr41"
@@ -52,10 +53,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxBackgroundColor="@android:color/transparent"
-                    app:boxCornerRadiusTopStart="6dp"
-                    app:boxCornerRadiusTopEnd="6dp"
-                    app:boxCornerRadiusBottomStart="6dp"
                     app:boxCornerRadiusBottomEnd="6dp"
+                    app:boxCornerRadiusBottomStart="6dp"
+                    app:boxCornerRadiusTopEnd="6dp"
+                    app:boxCornerRadiusTopStart="6dp"
                     app:boxStrokeColor="@color/black"
                     app:boxStrokeWidth="1dp"
                     app:errorEnabled="true">
@@ -101,10 +102,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:boxBackgroundColor="#FFFFFF"
-                        app:boxCornerRadiusTopStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
                         app:boxCornerRadiusBottomEnd="6dp"
+                        app:boxCornerRadiusBottomStart="6dp"
+                        app:boxCornerRadiusTopEnd="6dp"
+                        app:boxCornerRadiusTopStart="6dp"
                         app:boxStrokeColor="@color/black"
                         app:boxStrokeWidth="1dp"
                         app:endIconMode="password_toggle"
@@ -163,16 +164,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/log_3"
+                android:background="#1877F2"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                app:boxCornerRadiusTopStart="6dp"
-                app:boxCornerRadiusTopEnd="6dp"
-                app:boxCornerRadiusBottomStart="6dp"
+                android:paddingVertical="13dp"
                 app:boxCornerRadiusBottomEnd="6dp"
-                android:paddingVertical="13dp">
+                app:boxCornerRadiusBottomStart="6dp"
+                app:boxCornerRadiusTopEnd="6dp"
+                app:boxCornerRadiusTopStart="6dp">
 
                 <TextView
                     android:id="@+id/rjjompibzm"
@@ -197,7 +198,7 @@
             <LinearLayout
                 android:id="@+id/rchenfb0yv3o"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="46dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
@@ -205,8 +206,8 @@
                 <LinearLayout
                     android:id="@+id/goolge_login"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/log_4"
+                    android:layout_height="match_parent"
+                    android:background="#EEF1F4"
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="horizontal"
@@ -217,6 +218,7 @@
                         android:id="@+id/rs20nrb6by7e"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/ywcl4qv7_expires_30_days"
@@ -226,6 +228,7 @@
                         android:id="@+id/rgld8xxhyo6e"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Google"
                         android:textColor="#667080"
                         android:textSize="16sp"
@@ -259,4 +262,4 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
