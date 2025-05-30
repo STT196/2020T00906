@@ -1,22 +1,20 @@
 package com.example.a2020t00906;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.firebase.auth.FirebaseAuth;
-
-
-import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,156 +27,162 @@ public class SettingsActivity extends AppCompatActivity {
 
     private ImageView backImageView;
     private ListenerRegistration userInfoListener;
-
-    private TextView emailTextView,usernameTextView;
-
+    private TextView emailTextView, usernameTextView;
+    private LinearLayout userInfoLayout; // Reference to anchor popup above
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        // Initialize back image
         backImageView = findViewById(R.id.back);
-
-        // Handle back navigation
-        backImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Go back to previous activity (MainActivity)
-                finish(); // This closes the current activity and goes back
-            }
-        });
         emailTextView = findViewById(R.id.email2);
         usernameTextView = findViewById(R.id.username1);
+        userInfoLayout = findViewById(R.id.user_info_layout); // Initialize user info layout
 
+        backImageView.setOnClickListener(v -> finish());
+
+        // Get user info
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         if (user != null) {
             String email = user.getEmail();
-            String name = user.getDisplayName(); // May be null if not set
-
-            emailTextView.setText("Email: "+email);
-            usernameTextView.setText(name != null ? "Username: "+name : "No username");
+            String name = user.getDisplayName();
+            emailTextView.setText("Email: " + email);
+            usernameTextView.setText(name != null ? "Username: " + name : "No username");
         } else {
             emailTextView.setText("Not logged in");
             usernameTextView.setText("-");
         }
-        View devInfo = findViewById(R.id.dev);
 
-
-        devInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingsActivity.this, DevActivity.class);
-                startActivity(intent);
-            }
+        // Developer info
+        findViewById(R.id.dev).setOnClickListener(v -> {
+            Intent intent = new Intent(SettingsActivity.this, DevActivity.class);
+            startActivity(intent);
         });
 
+        // Sign out
         LinearLayout signOutLayout = findViewById(R.id.signout);
-        signOutLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOutUser();
-            }
-        });
+        signOutLayout.setOnClickListener(v -> showSignOutPopup(userInfoLayout)); // Anchor popup above user info
 
+        // Edit info
         LinearLayout editInfo = findViewById(R.id.edit_info);
-        editInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showEditInfoDialog();
-            }
-        });
-
-
+        editInfo.setOnClickListener(v -> showEditProfilePopup(v));
     }
 
+private void showEditProfilePopup(View anchor) {
+    View popupView = LayoutInflater.from(this).inflate(R.layout.activity_edit_profile, null);
+    final PopupWindow popupWindow = new PopupWindow(
+            popupView,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            true
+    );
 
-// Inside your activity class:
+    popupWindow.setOutsideTouchable(true);
+    popupWindow.setFocusable(true);
+    popupWindow.setElevation(20);
 
-    private void signOutUser() {
-        FirebaseAuth.getInstance().signOut();
-        // After sign out, redirect user to login screen
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear back stack
-        startActivity(intent);
-        finish();
-    }
-    private void showEditInfoDialog() {
-        // Inflate your dialog layout
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View dialogView = inflater.inflate(R.layout.activity_edit, null);
+    // Measure content
+    popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+    int popupHeight = popupView.getMeasuredHeight();
 
-        // Find views inside the dialog if you want to pre-fill or listen
-        EditText editUsername = dialogView.findViewById(R.id.editUsername);
+    // Get anchor location
+    int[] location = new int[2];
+    anchor.getLocationOnScreen(location);
+    int anchorY = location[1];
 
+    // Show popup centered above the anchor
+    popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, anchorY - popupHeight);
 
-        // Optional: pre-fill username/email from your data source
+    EditText editUsername = popupView.findViewById(R.id.editUsername);
+    LinearLayout btnYes = popupView.findViewById(R.id.btnConfirm);
+    LinearLayout btnCancel = popupView.findViewById(R.id.btnDeny);
 
-        // Build AlertDialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView)
+    btnYes.setOnClickListener(v -> {
+        String newUsername = editUsername.getText().toString().trim();
+        if (!newUsername.isEmpty()) {
+            updateUser(newUsername);
+            popupWindow.dismiss();
+        } else {
+            Toast.makeText(this, "Username cannot be empty", Toast.LENGTH_SHORT).show();
+        }
+    });
 
-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Handle saving updated info here
-                        String newUsername = editUsername.getText().toString().trim();
+    btnCancel.setOnClickListener(v -> popupWindow.dismiss());
+}
 
-
-                        // TODO: Validate and update your user info here
-                        updateUser(newUsername);
-//
-                    }
-                })
-                .setNegativeButton("Cancel", null);
-
-        AlertDialog dialog = builder.create();
-
-
-        dialog.show();
-    }
 
     private void updateUser(String username) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user == null) {
-            String msg = "User not logged in";
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-//            Log.d("UserUpdate", msg);
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String uid = user.getUid();
         Map<String, Object> updates = new HashMap<>();
-
         if (!username.isEmpty()) {
             updates.put("username", username);
         }
 
         if (updates.isEmpty()) {
-            String msg = "No changes to update";
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-//            Log.d("UserUpdate", msg);
+            Toast.makeText(this, "No changes to update", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users").document(uid)
+        FirebaseFirestore.getInstance().collection("users").document(uid)
                 .update(updates)
-                .addOnSuccessListener(aVoid -> {
-                    String msg = "Username updated successfully";
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-//                    Log.d("UserUpdate", msg);
-                })
-                .addOnFailureListener(e -> {
-                    String msg = "Failed to update username: " + e.getMessage();
-                    Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-//                    Log.e("UserUpdate", msg);
-                });
+                .addOnSuccessListener(aVoid -> Toast.makeText(this, "Username updated successfully", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> Toast.makeText(this, "Failed to update username: " + e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
+    private void signOutUser() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    private void showSignOutPopup(View anchor) {
+        View popupView = LayoutInflater.from(this).inflate(R.layout.activity_signout_confirm, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                true
+        );
+
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setElevation(20);
+
+        // Measure content
+        popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popupHeight = popupView.getMeasuredHeight();
+
+        // Get anchor location
+        int[] location = new int[2];
+        anchor.getLocationOnScreen(location);
+        int anchorY = location[1];
+
+        // Show popup centered horizontally above the anchor
+        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL,
+                0,
+                anchorY - popupHeight);
+
+        // Setup buttons
+        LinearLayout btnYes = popupView.findViewById(R.id.btnYes);
+        LinearLayout btnCancel = popupView.findViewById(R.id.btnCancel);
+
+        btnYes.setOnClickListener(v -> {
+            popupWindow.dismiss();
+            signOutUser();
+        });
+
+        btnCancel.setOnClickListener(v -> popupWindow.dismiss());
+    }
 
     @Override
     protected void onStart() {
@@ -186,8 +190,7 @@ public class SettingsActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            userInfoListener = db.collection("users")
+            userInfoListener = FirebaseFirestore.getInstance().collection("users")
                     .document(user.getUid())
                     .addSnapshotListener((documentSnapshot, error) -> {
                         if (error != null) {
@@ -205,6 +208,7 @@ public class SettingsActivity extends AppCompatActivity {
                     });
         }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -212,7 +216,4 @@ public class SettingsActivity extends AppCompatActivity {
             userInfoListener.remove();
         }
     }
-
 }
-
-
